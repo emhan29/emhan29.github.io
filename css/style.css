@@ -740,10 +740,16 @@ color: #00acee;
     background: #00acee;
 }
 .instagram{
-color: #e1856f;
+color: #d51e60;
 }
 .instagram::after{
-    background: #e1856f;
+    background: #d51e60;
+}
+.linkedin{
+color: #2464ad;
+}
+.linkedin::after{
+    background: #2464ad;
 }
 .youtube{
 color: #f60000;
