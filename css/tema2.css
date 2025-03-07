@@ -1,0 +1,296 @@
+
+    /* ========================================================================
+       Global Style
+    ======================================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding-bottom: 100px;
+    }
+    /* ========================================================================
+       Background Video (Desktop)
+    ======================================================================== */
+    .desktop-bg-video {
+      position: fixed; 
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    /* ========================================================================
+       Navbar Desktop (Horizontal) – Diposisikan di tengah bawah
+    ======================================================================== */
+    header {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      z-index: 100;
+    }
+    .desktop-menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+    .desktop-menu li {
+      position: relative;
+      width: 50px; height: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .desktop-menu li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%; height: 100%;
+      text-decoration: none;
+      color: white;
+      background-color: transparent;
+      transition: color 0.3s ease;
+    }
+    .desktop-menu li a:hover { color: #00aaff; }
+    .desktop-menu li a i {
+      font-size: 32px;
+      transition: transform 0.3s ease;
+    }
+    .desktop-menu li:hover { transform: scale(1.1); }
+    .desktop-menu li:hover a i { transform: scale(1.2); }
+    .desktop-menu li .nav-text {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      display: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: font-size 0.3s ease;
+    }
+    .desktop-menu li:hover .nav-text {
+      display: block;
+      font-size: 28px;
+    }
+    /* ========================================================================
+       Modal Popup (untuk Skills, Contact, Menu)
+    ======================================================================== */
+    .modal-popup {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+    .modal-popup .popup-content {
+      background: #222;
+      border: 4px solid #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      max-width: 90%;
+      position: relative;
+    }
+    .modal-popup .close-popup {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #00aaff;
+    }
+    /* ========================================================================
+       Progress Bar Styles (Modal Skills)
+    ======================================================================== */
+    .skill-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .skill-item {
+      text-align: center;
+      width: 100px;
+    }
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: conic-gradient(#00aaff 0deg calc((var(--target-percent, 60) / 100) * 360deg),
+        #333 calc((var(--target-percent, 60) / 100) * 360deg) 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      position: relative;
+      margin: 0 auto 4px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .circle:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px 5px rgba(255,255,255,0.6);
+    }
+    .circle span {
+      position: absolute;
+      font-size: 16px;
+      color: #000;
+      background-color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    /* ========================================================================
+       Popup Layout untuk Contact
+    ======================================================================== */
+    .contact-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 20px;
+      gap: 20px;
+    }
+    .contact-options div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .contact-options div i {
+      font-size: 32px;
+      margin-bottom: 5px;
+      transition: transform 0.3s ease;
+    }
+    .contact-options div:hover i {
+      color: #00aaff;
+      transform: scale(1.5);
+    }
+    .contact-options div span { font-size: 18px; }
+    /* ========================================================================
+       Popup Layout untuk Menu
+       (Container untuk ikon utama dan tambahan)
+    ======================================================================== */
+    .menu-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .menu-jaringan,
+    .menu-faucet {
+      padding-top: 15px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .menu-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+    .menu-jaringan div,
+    .menu-icons div,
+    .menu-faucet div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+    .menu-jaringan div i,
+    .menu-icons div i,
+    .menu-faucet div i {
+      font-size: 32px;
+      margin-bottom: 5px;
+      transition: transform 0.3s ease;
+    }
+    .menu-jaringan div:hover i,
+    .menu-icons div:hover i,
+    .menu-faucet div:hover i {
+      color: #00aaff;
+      transform: scale(1.5);
+    }
+    .menu-jaringan div span,
+    .menu-icons div span,
+    .menu-faucet div span { font-size: 18px; }
+    /* ========================================================================
+       Profile Section
+    ======================================================================== */
+    .profile {
+      margin-top: 100px;
+      text-align: center;
+      padding: 20px;
+    }
+    .profile-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .profile-img {
+      width: 250px; 
+      height: 250px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      box-shadow: 0 6px 15px rgba(255,255,255,0.6);
+      animation: coinFlip 16s infinite linear;
+      transform-style: preserve-3d;
+    }
+    .profile-img:hover { border-color: #fff; }
+    @keyframes coinFlip {
+      0% { transform: perspective(800px) rotateY(0deg); }
+      31.25% { transform: perspective(800px) rotateY(180deg); }
+      50% { transform: perspective(800px) rotateY(180deg); }
+      81.25% { transform: perspective(800px) rotateY(1440deg); }
+      100% { transform: perspective(800px) rotateY(1440deg); }
+    }
+    .profile-text { max-width: 500px; }
+    .profile-text h1 { font-size: 25px; margin-bottom: 10px; }
+    .profile-text h2 { font-size: 30px; color: #00aaff; margin-bottom: 10px; line-height: 1.2; }
+    .profile-text p { font-size: 20px; margin-bottom: 10px; }
+    .cv-btn {
+      background-color: #00aaff;
+      padding: 12px 25px;
+      border: none;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      color: black;
+      box-shadow: 0 6px 15px rgba(255,255,255,0.6);
+    }
+    .cv-btn:hover {
+      background-color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(255,255,255,0.6);
+      color: black;
+    }
+    /* ========================================================================
+       Media Query (Responsive adjustments)
+    ======================================================================== */
+    @media (max-width: 768px) {
+      /* Pastikan desktop menu tetap tampil di mobile */
+      .desktop-menu { display: flex; }
+      .profile-info { flex-direction: column; }
+      .profile-img { width: 120px; height: 120px; border: 4px solid #fff; }
+      .profile-text h1 { font-size: 28px; }
+      .profile-text p { font-size: 16px; }
+      .cv-btn { font-size: 12px; font-weight: bold; }
+    }

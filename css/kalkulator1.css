@@ -1,0 +1,217 @@
+    /* Reset CSS */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #111;
+      margin: 0;
+      position: relative;
+    }
+    
+    /* Background Video (Desktop) */
+    .desktop-bg-video {
+      position: fixed; 
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* Kolom untuk hasil */
+    .result-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      border: 4px solid #ccc;
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #111;
+      border-bottom: 3px solid #111;
+      padding-bottom: 10px;
+    }
+
+    .nominal {
+      font-size: 18px;
+      color: #111;
+      font-weight: bold;
+    }
+
+    .nominal span {
+      font-weight: bold;
+      color: #111;
+    }
+
+    /* Kolom untuk kalkulator */
+    .calculator {
+      background-color: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      color: #333;
+      border: 4px solid #ccc;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .display {
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      text-align: right;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .button {
+      background-color: #ffff00;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      color: #111;
+      border: 1px solid #ccc;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #1976D2;
+    }
+
+    .button:active {
+      background-color: #1565C0;
+    }
+
+    .button:focus {
+      outline: none;
+    }
+
+    /* Tombol icon home */
+    .home-button {
+      background-color: #111;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: #1976D2;
+    }
+
+    .home-button:active {
+      background-color: #1565C0;
+    }
+
+    .home-button:focus {
+      outline: none;
+    }
+
+    /* Kolom untuk gambar (foto yang bisa digeser) */
+    .image-container {
+      position: absolute;
+      left: 19%;
+      top: 40%;
+      cursor: grab;
+      width: 150px;
+      height: 150px;
+      transition: width 0.3s, height 0.3s;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .calculator, .result-container {
+        width: 90%;
+        max-width: none;
+      }
+      .display {
+        font-size: 18px;
+      }
+      .button {
+        padding: 8px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .display {
+        font-size: 16px;
+      }
+      .button {
+        padding: 6px;
+        font-size: 12px;
+      }
+      .buttons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .nominal {
+        font-size: 14px;
+      }
+    }

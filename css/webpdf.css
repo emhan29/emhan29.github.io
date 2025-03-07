@@ -1,0 +1,363 @@
+   /* ========================
+       Global & Reset
+    ========================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a2e;
+      color: #111;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden; /* Hanya area PDF yang scroll */
+      position: relative;
+    }
+
+    /* ========================
+       Background Video (Desktop)
+    ========================= */
+    .desktop-bg-video {
+      position: fixed; 
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* ========================
+       Top Bar (Icon di Atas PDF)
+       - Awalnya hanya tampil ikon Home (collapsed)
+    ========================= */
+    .top-bar {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 40px;
+      z-index: 101;
+      transition: all 0.3s ease;
+    }
+    .top-bar.collapsed button:not(:first-child) {
+      display: none;
+    }
+    .icon-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 32px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .icon-btn:hover {
+      color: #ff6666;
+      transform: scale(1.3);
+    }
+    .icon-label {
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      white-space: nowrap;
+      display: none;
+    }
+    .icon-btn:hover .icon-label {
+      display: block;
+    }
+
+    /* ========================
+       Kontainer PDF
+       - Area scrollable independen untuk PDF
+    ========================= */
+    .pdf-wrapper {
+      position: absolute;
+      top: 100px; /* beri jarak dari top bar */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 70%;
+      overflow: auto;
+      border: 10px solid #A9A9A9;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      background: #ffffff;
+      position: relative;
+    }
+    .pdf-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .pdf-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      transition: transform 0.3s, color 0.3s;
+      pointer-events: none;
+    }
+    .pdf-wrapper:hover .pdf-caption {
+      transform: translateX(-50%) scale(1.3);
+      color: #111111;
+    }
+
+    /* ========================
+       Tombol Download PDF
+       - Tidak membesar, hanya berganti warna saat dihover
+    ========================= */
+    .download-btn {
+      position: absolute;
+      top: calc(100px + 70% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 6px 15px rgba(255,255,255,0.6);
+      z-index: 10;
+    }
+    .download-btn:hover {
+      background-color: #ff6666;
+      box-shadow: 0 6px 15px rgba(255,255,255,0.6);
+    }
+
+    /* ========================
+       Popup Login (selalu tampil saat halaman dimuat)
+       - Border tebal 5px
+    ========================= */
+    .overlay {
+      display: block;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 999;
+    }
+    .login-popup {
+      display: block;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      background-color: #1d1d1d;
+      border: 5px solid #ffffff; /* Tebal border putih */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      z-index: 1000;
+      color: #fff;
+    }
+
+    /* ========================
+       Slider di dalam Popup Login (6 gambar PNG)
+       - Hapus border, perkecil tombol prev/next
+    ========================= */
+    .slider-container {
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 15px;
+      /* border: 1px solid #ccc;  <-- Dihapus */
+      border-radius: 5px;
+    }
+    .slider-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    /* Tombol prev/next diperkecil */
+    .slider-container button.prev,
+    .slider-container button.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: silver; /* Warna tombol */
+      color: #000;
+      border: none;
+      padding: 2px 6px; /* DIPERKECIL */
+      border-radius: 3px; /* DIPERKECIL */
+      cursor: pointer;
+      font-size: 12px; /* DIPERKECIL */
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      z-index: 10;
+    }
+    .slider-container button.prev:hover,
+    .slider-container button.next:hover {
+      opacity: 1;
+    }
+    .slider-container button.prev {
+      left: 10px;
+    }
+    .slider-container button.next {
+      right: 10px;
+    }
+
+    /* ========================
+       Judul Popup Login
+    ========================= */
+    .login-popup h2 {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 10px;
+      border-bottom: 1px solid #ffffff;
+      padding-bottom: 8px;
+    }
+    .login-popup form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .login-popup form input {
+      padding: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      font-size: 14px;
+      /* Pastikan nilai selalu kosong saat refresh */
+      autocomplete: off;
+    }
+    .login-popup form input:focus {
+      outline: none;
+      border-color: #ffffff;
+    }
+
+    /* ========================
+       Baris ikon di bawah input password: 3 ikon
+    ========================= */
+    .icon-row {
+      display: flex;
+      justify-content: space-around;
+      margin-top: -5px;
+    }
+    .icon-row i {
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+      color: #fff; /* Warna putih untuk ikon */
+    }
+    .icon-row i:hover {
+      color: #ff6666;
+      transform: scale(1.2);
+    }
+    .login-popup form button {
+      background-color: #111;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .login-popup form button:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    /* ========================
+       Popup Error (untuk password salah)
+    ========================= */
+    .error-popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1a1a1a;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      padding: 15px;
+      z-index: 1100;
+      box-shadow: 0 0 15px rgba(255,0,0,0.6);
+    }
+    .error-popup p {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .error-popup button {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    .error-popup button:hover {
+      background-color: #ff6666;
+    }
+
+    /* ========================
+       Popup Lock (untuk ikon kunci di login)
+       - Muncul saat ikon kunci diklik, tampil di atas popup login
+    ========================= */
+    .lock-popup {
+      display: none;
+      position: absolute;
+      top: 30%;  /* Sesuaikan agar tampil di atas popup login */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      background-color: #333;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      z-index: 1101;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      text-align: center;
+    }
+    .lock-popup h3 {
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .lock-popup p {
+      color: #cccccc;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .lock-popup button {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    .lock-popup button:hover {
+      background-color: #ff6666;
+    }
+
+    /* ========================
+       Media Query (Mobile & Tablet)
+       - Untuk layar dengan lebar =1024px, izinkan body discroll
+    ========================= */
+    @media (max-width: 1024px) {
+      body { overflow-y: auto; }
+    }
+    @media (max-width: 768px) {
+      .pdf-wrapper {
+        width: 95%;
+        height: 65vh;
+      }
+      .download-btn {
+        top: calc(100px + 65vh + 15px);
+        font-size: 14px;
+      }
+    }
