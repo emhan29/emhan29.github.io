@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio</title>
+  <!-- Memuat ikon Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/porto2.css" />
+  <script src="../js/porto2.js"></script>
+  <script src="../js/progress_bar_porto2.js"></script>
+
+</head>
+<body>
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop id="background-video">
+    <source src="../video/petir1.mp4" type="video/mp4">
+    Browser Anda tidak mendukung elemen video.
+  </video>
+  
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <h1>Portofolio</h1>
+      <div class="profile">
+        <img src="../images/profile.jpg" alt="Foto Profil" class="profile-pic" />
+        <div class="contact-info">
+          <p class="p1"><i class="fas fa-home"></i> Alamat : BTN Pengawu Blok C4 No. 40, Kota Palu</p>
+          <p class="p2"><i class="fab fa-whatsapp"></i> WA/Tele/Telp: 087895555578</p>
+          <p class="p3"><i class="fas fa-envelope"></i> Email : cvemhan290185@gmail.com</p>
+          <p class="p4"><i class="fas fa-globe"></i> Web : <a href="#" class="link">emhan29github.io</a></p>
+        </div>
+      </div>
+    </header>
+    
+    <!-- NAVBAR -->
+    <nav class="menu" id="navbar">
+      <div class="nav-toggle">
+        <a href="#" id="toggleBtn"><i class="fas fa-home"></i></a>
+      </div>
+      <div class="nav-items">
+        <a href="#" id="minat-link"><i class="fas fa-heart"></i></a>
+        <a href="#" id="pendidikan-link"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#" id="pengalaman-link"><i class="fas fa-briefcase"></i></a>
+        <a href="#" id="skill-link"><i class="fas fa-cogs"></i></a>
+        <a href="#" id="sertifikat-link"><i class="fas fa-certificate"></i></a>
+        <a href="#" id="popup-trigger"><i class="fa fa-reply-all"></i></a>
+      </div>
+    </nav>
+    
+    <!-- SECTION: MINAT & PENDIDIKAN -->
+    <section class="content">
+      <!-- BOX MINAT -->
+      <div class="box" id="minat-modal">
+        <span class="close-btn">&times;</span>
+        <h2>Minat</h2>
+        <div class="item">
+          <div class="text">Belajar Hal Menarik</div>
+          <div class="icon"><i class="fas fa-code"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">Teknologi Dan Pemograman</div>
+          <div class="icon"><i class="fas fa-book"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">Desain  &amp; Kreatif</div>
+          <div class="icon"><i class="fas fa-pencil-alt"></i></div>
+        </div>
+        <h3 class="social-title">Sosmed</h3>
+        <div class="social-icons">
+          <div class="social-icon"><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></div>
+          <div class="social-icon"><a href="#" target="_blank"><i class="fab fa-github"></i></a></div>
+          <div class="social-icon"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></div>
+          <div class="social-icon"><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+          <div class="social-icon"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></div>
+          <div class="social-icon"><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></div>
+        </div>
+      </div>
+      
+      <!-- BOX PENDIDIKAN (4 Item) -->
+      <div class="box" id="pendidikan-modal">
+        <span class="close-btn">&times;</span>
+        <h2>Pendidikan</h2>
+        <div class="item">
+          <div class="text">
+            <span class="year">2010 - 2013</span><br/>
+            <span class="univ">Akper Justitia</span><br/>
+            <span class="jurusan">Akper</span>
+          </div>
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">2000 - 2003</span><br/>
+            <span class="univ">STM Muhammahdyah Palu</span><br/>
+            <span class="jurusan">Otomotif</span>
+          </div>
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">2000 - 2003</span><br/>
+            <span class="univ">SMP Negeri 4 Palu</span><br/>
+            <span class="jurusan">Pelajar</span>
+          </div>
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">1997 - 2003</span><br/>
+            <span class="univ">SD Negeri 13 Toli Toli</span><br/>
+            <span class="jurusan">Pelajar</span>
+          </div>
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION: KEAHLIAN (CIRCULAR PROGRESS) -->
+    <div class="keahlian-box" id="skill-modal">
+      <span class="close-btn">&times;</span>
+      <h2>KEAHLIAN</h2>
+      <div class="skill-wrapper">
+        <div class="skill-item">
+          <div class="circle circle-60" data-targetpercent="65"><span>65%</span></div>
+          <p>Komputer</p>
+        </div>
+        <div class="skill-item">
+          <div class="circle circle-80" data-targetpercent="60"><span>60%</span></div>
+          <p>Code</p>
+        </div>
+        <div class="skill-item">
+          <div class="circle circle-75" data-targetpercent="65"><span>65%</span></div>
+          <p>Office</p>
+        </div>
+        <div class="skill-item">
+          <div class="circle circle-80" data-targetpercent="65"><span>65%</span></div>
+          <p>Mekanika</p>
+        </div>
+        <div class="skill-item">
+          <div class="circle circle-75" data-targetpercent="65"><span>65%</span></div>
+          <p>Emergency</p>
+        </div>
+        <div class="skill-item">
+          <div class="circle circle-90" data-targetpercent="70"><span>70%</span></div>
+          <p>Persentase</p>
+        </div>
+      </div>
+    </div>
+    
+     <!-- SECTION: PENGALAMAN KERJA & SERTIFIKAT -->
+    <section class="content">
+      <!-- BOX PENGALAMAN KERJA (Modal) -->
+      <div class="box" id="pengalaman-modal">
+        <span class="close-btn">&times;</span>
+        <h2>Pengalaman Kerja</h2>
+        <!-- Slider dengan tombol panah kiri & kanan -->
+        <div class="slider" id="experience-slider">
+          <!-- Tombol panah kiri -->
+          <button class="slider-prev" aria-label="Sebelumnya">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Container slide -->
+          <div class="slides">
+            <div class="slide" data-index="0">
+              <img src="../images/GNI.png" alt="Slide 1">
+              <div class="caption">
+                <div class="caption-name">PT. GNI</div>
+                <div class="caption-position">Helper Mekanik</div>
+                <div class="caption-year">2024 - 2024</div>
+              </div>
+            </div>
+            <div class="slide" data-index="1">
+              <img src="../images/BankMandiri.png" alt="Slide 2">
+              <div class="caption">
+                <div class="caption-name">Bank Mandiri</div>
+                <div class="caption-position">Hiring Kur Tki</div>
+                <div class="caption-year">2017 - 2019</div>
+              </div>
+            </div>
+            <div class="slide" data-index="2">
+              <img src="../images/RSanutapura.png" alt="Slide 3">
+              <div class="caption">
+                <div class="caption-name">RSU Anutapura Palu</div>
+                <div class="caption-position">Emergency</div>
+                <div class="caption-year">2013 - 2017</div>
+              </div>
+            </div>
+            <div class="slide" data-index="3">
+              <img src="../images/AnugerahPerdana.png" alt="Slide 4">
+              <div class="caption">
+                <div class="caption-name">CV Anugrah Perdana Main Dealer Honda</div>
+                <div class="caption-position">Mekanik</div>
+                <div class="caption-year">2007 - 2009</div>
+              </div>
+            </div>
+            <div class="slide" data-index="4">
+              <img src="../images/Bonanza.png" alt="Slide 5">
+              <div class="caption">
+                <div class="caption-name">PT Bonanza Pratama Abadi</div>
+                <div class="caption-position">Pengawas Di Ruangan Cook Peeled</div>
+                <div class="caption-year">2003 - 2005</div>
+              </div>
+            </div>
+          </div>
+          <!-- Tombol panah kanan -->
+          <button class="slider-next" aria-label="Selanjutnya">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <!-- Indikator slider (dot) -->
+          <div class="slider-indicators">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- BOX SERTIFIKAT (8 item, scrollable) -->
+      <div class="box scrollable-box" id="sertifikat-modal">
+        <span class="close-btn">&times;</span>
+        <h2>Sertifikat</h2>
+        <div class="item">
+          <div class="text">
+            <span class="year">Computer</span><br/>
+            <span class="univ">Bina Mulya Palu</span><br/>
+            <span class="jurusan">Juni - Agustus 2013</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Dicoding</span><br/>
+            <span class="univ">Dicoding</span><br/>
+            <span class="jurusan">21 Juni 2021</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Banking</span><br/>
+            <span class="univ">BI Palembang</span><br/>
+            <span class="jurusan">6 Juli 2021</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Banking</span><br/>
+            <span class="univ">BSI Dan Syafiq</span><br/>
+            <span class="jurusan">19 Juni 2021.</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Spak</span><br/>
+            <span class="univ">Spak</span><br/>
+            <span class="jurusan">28 Oktober 2020</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Emergency</span><br/>
+            <span class="univ">Brigade Siaga Bencana Indonesia Timur (BTCLS)</span><br/>
+            <span class="jurusan">24 Januari 2014</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Emergency</span><br/>
+            <span class="univ">BHD RS Anutapura Palu</span><br/>
+            <span class="jurusan">Mei 2016</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="year">Emergency</span><br/>
+            <span class="univ">PPGD, RS Hasan Sadikin</span><br/>
+            <span class="jurusan">Juni 2013</span>
+          </div>
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- POPUP MENU AWAL -->
+  <div id="popup-menu" class="popup-menu">
+    <div class="popup-content">
+      <ul>
+        <li><a href="../index.html?target=tema2" id="popup-home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#" id="popup-change-theme"><i class="fas fa-cog"></i> Ganti Tema</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- POPUP MENU KEDUA UNTUK PILIHAN TEMA -->
+  <div id="theme-popup" class="popup-menu">
+    <div class="popup-content">
+      <ul>
+        <li><a href="../index.html?target=porto1" id="porto1"><i class="fas fa-paint-brush"></i> Tema 1</a></li>
+        <li><a href="#" id="porto2"><i class="fas fa-paint-brush"></i> Tema 2</a></li>
+        <li><a href="../index.html?target=porto3" id="porto3"><i class="fas fa-paint-brush"></i> Tema 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2023 Emhan. All rights reserved. | <a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <!-- ===========================
+       SCRIPT UNTUK INTERAKSI
+  =========================== -->
+
+</body>
+</html>
