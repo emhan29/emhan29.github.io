@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY PROJECT</title>
+    <script src="protection.js"></script>
+    <script src="../js/protection.js" defer></script>
+    <style>
+        /* ============================================
+           MY PROJECT — HALAMAN UTAMA
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Background glow — biru soft */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(77, 166, 255, 0.04), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: glowPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ===== TEKS MY PROJECT ===== */
+        .title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 0 0 40px rgba(77, 166, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .title span {
+            color: #4da6ff;
+        }
+
+        /* ===== ATOM ANIMASI — TETAP BIRU ===== */
+        .atom-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 50px;
+            flex-shrink: 0;
+        }
+
+        .atom-wrapper .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .atom-wrapper .ring:nth-child(1) {
+            border-top-color: #4da6ff;
+            animation: spinAtom 3s linear infinite;
+        }
+
+        .atom-wrapper .ring:nth-child(2) {
+            border-right-color: #66b8ff;
+            animation: spinAtom 2.5s linear infinite reverse;
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+        }
+
+        .atom-wrapper .ring:nth-child(3) {
+            border-bottom-color: #88ccff;
+            animation: spinAtom 2s linear infinite;
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+        }
+
+        @keyframes spinAtom {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .atom-wrapper .core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75px;
+            height: 75px;
+            background: radial-gradient(circle, #4da6ff, #1a5a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            color: #fff;
+            box-shadow: 0 0 60px rgba(77, 166, 255, 0.3), 0 0 120px rgba(77, 166, 255, 0.1);
+            animation: pulseCore 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCore {
+            0%,
+            100% {
+                box-shadow: 0 0 60px rgba(77, 166, 255, 0.3), 0 0 120px rgba(77, 166, 255, 0.1);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(77, 166, 255, 0.5), 0 0 160px rgba(77, 166, 255, 0.2);
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        /* ============================================
+           GEMBOK — KUNING EMAS + TENGAH
+           ============================================ */
+        .lock-wrapper {
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .lock-wrapper:hover {
+            transform: scale(1.08);
+        }
+
+        .lock-wrapper:active {
+            transform: scale(0.92);
+        }
+
+        .lock-wrapper .lock-icon {
+            font-size: 100px;
+            color: rgba(255, 193, 7, 0.40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: rgba(255, 193, 7, 0.02);
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 193, 7, 0.06);
+            text-shadow: 0 0 30px rgba(255, 193, 7, 0.05);
+        }
+
+        .lock-wrapper:hover .lock-icon {
+            color: #ffc107;
+            border-color: rgba(255, 193, 7, 0.25);
+            box-shadow: 0 0 60px rgba(255, 193, 7, 0.08), inset 0 0 60px rgba(255, 193, 7, 0.02);
+            text-shadow: 0 0 50px rgba(255, 193, 7, 0.20);
+            transform: scale(1.04);
+        }
+
+        .lock-wrapper .lock-label {
+            display: block;
+            margin-top: 12px;
+            font-size: 14px;
+            color: rgba(255, 193, 7, 0.15);
+            letter-spacing: 2px;
+            font-weight: 300;
+            transition: all 0.3s ease;
+        }
+
+        .lock-wrapper:hover .lock-label {
+            color: rgba(255, 193, 7, 0.30);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .title {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+            .atom-wrapper {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 30px;
+            }
+            .atom-wrapper .core {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+            .lock-wrapper .lock-icon {
+                font-size: 72px;
+                width: 120px;
+                height: 120px;
+            }
+            .lock-wrapper .lock-label {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .title {
+                font-size: 26px;
+            }
+            .atom-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+            .atom-wrapper .core {
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+            }
+            .lock-wrapper .lock-icon {
+                font-size: 54px;
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== TEKS MY PROJECT ===== -->
+        <div class="title">MY <span>PROJECT</span></div>
+
+        <!-- ===== ATOM ANIMASI (BIRU) ===== -->
+        <div class="atom-wrapper">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="core">⚛</div>
+        </div>
+
+        <!-- ===== GEMBOK KUNING EMAS ===== -->
+        <div class="lock-wrapper" onclick="navigateTo('myproject.html')">
+            <div class="lock-icon">🔒</div>
+            <span class="lock-label">─ KLIK UNTUK BUKA ─</span>
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    LOADER + NAVIGASI
+    ============================================ -->
+    <script>
+        // ===== FUNGSI NAVIGASI =====
+        function navigateTo(url) {
+            const lock = document.querySelector('.lock-wrapper');
+            lock.style.transform = 'scale(0.92)';
+            lock.style.transition = 'transform 0.15s ease';
+
+            setTimeout(function() {
+                window.location.href = url;
+            }, 250);
+        }
+
+        console.log('✅ MY PROJECT — Gembok kuning emas + tengah siap!');
+        console.log('📌 Klik gembok untuk buka myproject.html');
+    </script>
+
+</body>
+</html>
