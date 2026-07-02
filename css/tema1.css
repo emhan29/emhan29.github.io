@@ -191,7 +191,7 @@
       margin-top: 20px;
     }
     .menu-jaringan,
-    .menu-Project {
+    .menu-faucet {
       padding-top: 15px;
       display: flex;
       justify-content: center;
@@ -205,7 +205,7 @@
     }
     .menu-jaringan div,
     .menu-icons div,
-    .menu-Project div {
+    .menu-faucet div {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -213,20 +213,20 @@
     }
     .menu-jaringan div i,
     .menu-icons div i,
-    .menu-Project div i {
+    .menu-faucet div i {
       font-size: 32px;
       margin-bottom: 5px;
       transition: transform 0.3s ease;
     }
     .menu-jaringan div:hover i,
     .menu-icons div:hover i,
-    .menu-Project div:hover i {
+    .menu-faucet div:hover i {
       color: #ffff00;
       transform: scale(1.5);
     }
     .menu-jaringan div span,
     .menu-icons div span,
-    .menu-Project div span { font-size: 18px; }
+    .menu-faucet div span { font-size: 18px; }
     /* ========================================================================
        Profile Section
     ======================================================================== */
