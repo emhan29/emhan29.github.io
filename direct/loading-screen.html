@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATOM - Loading</title>
+    <script src="protection.js"></script>
+    <script src="../js/protection.js" defer></script>
+    <style>
+        /* ============================================
+           ATOM LOADING SCREEN — CLEAN VERSION
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .atom-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .atom-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* ===== LOGO ATOM BESAR ===== */
+        .atom-loader .logo-icon-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin-bottom: 30px;
+        }
+
+        .atom-loader .logo-icon-wrapper .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .atom-loader .logo-icon-wrapper .ring:nth-child(1) {
+            border-top-color: #4da6ff;
+            animation: spinLoader 3s linear infinite;
+        }
+
+        .atom-loader .logo-icon-wrapper .ring:nth-child(2) {
+            border-right-color: #66b8ff;
+            animation: spinLoader 2.5s linear infinite reverse;
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+        }
+
+        .atom-loader .logo-icon-wrapper .ring:nth-child(3) {
+            border-bottom-color: #88ccff;
+            animation: spinLoader 2s linear infinite;
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+        }
+
+        @keyframes spinLoader {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .atom-loader .logo-icon-wrapper .core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, #4da6ff, #1a5a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #fff;
+            box-shadow: 0 0 60px rgba(77, 166, 255, 0.3), 0 0 120px rgba(77, 166, 255, 0.1);
+            animation: pulseCoreLoader 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCoreLoader {
+            0%,
+            100% {
+                box-shadow: 0 0 60px rgba(77, 166, 255, 0.3), 0 0 120px rgba(77, 166, 255, 0.1);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(77, 166, 255, 0.5), 0 0 160px rgba(77, 166, 255, 0.2);
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        /* ===== TEKS ATOM ===== */
+        .atom-loader .brand {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 40px rgba(77, 166, 255, 0.15);
+        }
+
+        .atom-loader .brand span {
+            color: #4da6ff;
+        }
+
+        /* ===== LOADING BAR ===== */
+        .atom-loader .loading-bar {
+            margin-top: 30px;
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .atom-loader .loading-bar .fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #4da6ff, #66b8ff, #4da6ff);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: fillProgress 1.8s ease-in-out infinite, shimmerProgress 1.2s linear infinite;
+        }
+
+        @keyframes fillProgress {
+            0% {
+                width: 0%;
+            }
+            50% {
+                width: 70%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes shimmerProgress {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .atom-loader .loading-text {
+            margin-top: 10px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .atom-loader .loading-text .dot {
+            animation: dotBlink 1.4s infinite;
+        }
+        .atom-loader .loading-text .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .atom-loader .loading-text .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotBlink {
+            0%,
+            80%,
+            100% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .atom-loader .logo-icon-wrapper {
+                width: 120px;
+                height: 120px;
+            }
+            .atom-loader .logo-icon-wrapper .core {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+            .atom-loader .brand {
+                font-size: 28px;
+            }
+            .atom-loader .loading-bar {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    ATOM LOADING SCREEN
+    ============================================ -->
+    <div class="atom-loader" id="atomLoader">
+        <div class="logo-icon-wrapper">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="core">⚛</div>
+        </div>
+        <div class="brand">ATOM <span>⚡</span></div>
+        <div class="loading-bar">
+            <div class="fill"></div>
+        </div>
+        <div class="loading-text">
+            Memuat<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </div>
+    </div>
+
+    <!-- ============================================
+    KONTEN UTAMA (ISI SESUAI KEBUTUHAN)
+    ============================================ -->
+    <!-- 
+        ⚠️ HAPUS ATAU GANTI BAGIAN INI DENGAN KONTEN HTML KAMU
+        Contoh: 
+        <div id="mainContent">
+            <h1 style="color:#fff; text-align:center; padding:50px;">Selamat Datang di ATOM!</h1>
+        </div>
+    -->
+
+    <script>
+        // ============================================
+        // ATOM LOADER — FUNGSI SIAP PAKAI
+        // ============================================
+
+        // 1. Sembunyikan loader otomatis setelah halaman siap
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('atomLoader').classList.add('hide');
+            }, 1800);
+        });
+
+        // 2. Tampilkan loader
+        function showLoader() {
+            const loader = document.getElementById('atomLoader');
+            loader.classList.remove('hide');
+            const fill = loader.querySelector('.fill');
+            fill.style.animation = 'none';
+            void fill.offsetHeight;
+            fill.style.animation = 'fillProgress 1.8s ease-in-out infinite, shimmerProgress 1.2s linear infinite';
+        }
+
+        // 3. Sembunyikan loader manual
+        function hideLoader(delay = 0) {
+            setTimeout(function() {
+                document.getElementById('atomLoader').classList.add('hide');
+            }, delay);
+        }
+
+        // 4. ★★★ INI YANG KAMU UBAH — GANTI URL NYA ★★★
+        function navigateTo(url) {
+            showLoader();
+            setTimeout(function() {
+                window.location.href = index.html;
+            }, 1200);
+        }
+
+        // ============================================
+        // CONTOH PAKAI:
+        // ============================================
+        // Klik tombol → navigateTo('index.html')
+        // Klik tombol → navigateTo('token.html')
+        // Klik tombol → navigateTo('dashboard.html')
+
+        console.log('✅ ATOM Loader siap!');
+        console.log('📌 Tinggal panggil: navigateTo("nama_file.html")');
+    </script>
+
+</body>
+</html>
